@@ -8,7 +8,7 @@ const register = async (req, res) => {
     let user = await User.findOne({ email });
 
     if (user) {
-      res.status(400).json({
+      return res.status(400).json({
         ok: false,
         msg: "Hay un usuario existente con este correo",
       });
@@ -32,7 +32,7 @@ const register = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(201).json({
+    res.status(400).json({
       ok: false,
       msg: "Por favor hable con el administrador",
     });
@@ -45,7 +45,7 @@ const login = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      res.status(400).json({
+      return res.status(400).json({
         ok: false,
         msg: "El usuario no existe con este email",
       });
@@ -74,7 +74,7 @@ const login = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(201).json({
+    res.status(400).json({
       ok: false,
       msg: "Por favor hable con el administrador",
     });
@@ -90,6 +90,8 @@ const renewToken = async (req, res) => {
 
   res.json({
     ok: true,
+    uid,
+    name,
     token,
   });
 };
