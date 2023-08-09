@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Event = require("../models/Event");
 
 const getEvents = async (req, res = response) => {
-  const events = Event.find();
+  const events = await Event.find();
 
   res.json({
     ok: true,
