@@ -10,7 +10,7 @@ const register = async (req, res) => {
     if (user) {
       return res.status(400).json({
         ok: false,
-        msg: "Hay un usuario existente con este correo",
+        msg: "Ya hay un usuario existente con este correo",
       });
     }
     user = new User(req.body);
