@@ -32,7 +32,7 @@ describe("testing endpoint /api/auth", () => {
       password: "Hulk2604",
     };
     chai
-      .request("https://calendarapp-backend-5btm-dev.fl000000000.io")
+      .request("https://calendarapp-backend-5btm-dev.fl0.io")
       .post("/api/auth")
       .send(user)
       .end((err, res) => {
